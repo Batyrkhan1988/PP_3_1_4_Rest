@@ -7,9 +7,9 @@ import ru.kata.spring.boot_security.demo.service.UserService;
 
 import java.util.List;
 
-@org.springframework.web.bind.annotation.RestController
+@RestController
 @RequestMapping("/api")
-public class RestController {
+public class AdRestController {
 
     @Autowired
     private UserService userService;
