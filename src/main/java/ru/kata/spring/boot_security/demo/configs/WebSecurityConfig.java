@@ -31,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/admin/**")
-                .permitAll()// Чтобы не логинитья миллиард раз. Ненавижу фронт энд. Миллиард раз перезаходи - чекай.
+                .permitAll()
                 .antMatchers("/admin/**")
                 .hasRole("ADMIN")
                 .anyRequest()
