@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<html lang="en">
+      lang="EN">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -337,7 +336,7 @@
 </div>
 </body>
 
-<!-- JS -->
+<!-- JavaSukaScript -->
 <script th:fragment="usersTable" type="text/javascript">
     const URLUserAPI = 'http://localhost:8080/api/users'
     const usersTable = document.querySelector('#allUsersTable')
@@ -414,6 +413,7 @@
     //функция обработки нажатия кнопки "Редактировать" в таблице всех пользователей
     let allModalButtonRegistration = () => {
         $(document).ready(function (event) {
+            event.preventDefault();
             $('.table .eBtn').on('click', function (event) {
                 event.preventDefault();
                 const userId = $(this).attr('value');
@@ -461,6 +461,7 @@
     let modalButtonListeners = () => {
         //функция обработки нажатия кнопки "Удалить" в модалке
         $("#deleteEmployeeModal").find('#modalDelButton').on('click', async (event) => {
+            event.preventDefault();
             let delModal = $('#deleteEmployeeModal');
             let id = delModal.find('#id').val().trim();
             await userFetchService.deleteUser(id);
@@ -475,7 +476,7 @@
 
         //функция обработки нажатия кнопки "Редактировать" в модалке
         $("#editEmployeeModal").find('#modalEditButton').on('click', async (event) => {
-
+            event.preventDefault();
             let editModal = $('#editEmployeeModal');
             let id = editModal.find('#id').val();
             let name = editModal.find('#name').val();
@@ -516,9 +517,8 @@
 
     //Создание нового юзера
     $("#newUser").find('#addNewUserButton').on('click', async (event) => {
-
+        event.preventDefault();
         let editModal = $('#newUser');
-
         let firstName = editModal.find('#name').val();
         let lastName = editModal.find('#lastName').val();
         let age = editModal.find('#age').val();
@@ -552,4 +552,3 @@
             });
     });
 </script>
-</html>
